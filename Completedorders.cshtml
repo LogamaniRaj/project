@@ -1,0 +1,118 @@
+﻿@model IEnumerable<mvc_shopping_mainproject.Models.orderModel>
+
+@{
+    ViewBag.Title = "Completedorders";
+    Layout = "~/Views/Shared/delivery_layout.cshtml";
+}
+
+<h2>Completed Orders</h2>
+
+
+<table align="center" style="border:none;background-color:lemonchiffon;color:darkblue;height:auto;font-size:28px;font-family:Garamond">
+    <tr style="background-color:darkblue;color:yellow">
+        @*<th >
+                @Html.DisplayNameFor(model => model.OrderID)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th hidden>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th >
+                @Html.DisplayNameFor(model => model.ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderPrice)
+            </th>*@
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.DeliveryAddress)
+        </th>
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.DeliveryCity)
+        </th>
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.PinCode)
+        </th>
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th width="250px">
+            @Html.DisplayNameFor(model => model.PaymentOption)
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.OrderID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>*@
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.DeliveryAddress)
+            </td>
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.DeliveryCity)
+            </td>
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.PinCode)
+            </td>
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+            <td width="250px;">
+                @Html.DisplayFor(modelItem => item.PaymentOption)
+            </td>
+            
+            <td class="ABC" width="200px">
+                @Html.ActionLink("Order Details ", "Myorderdetails_delivery", new { orderid = item.OrderID }, new AjaxOptions { HttpMethod = "get", UpdateTargetId = "result" })
+
+            </td>
+
+
+
+        </tr>
+         <tr>
+            <td>
+                <br />
+            
+            </td>
+        </tr>
+        
+    }
+
+</table>
+

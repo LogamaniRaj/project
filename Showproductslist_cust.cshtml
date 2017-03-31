@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Showproductslist_cust";
+    Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<style>
+    .ABC
+    {
+        align-content:center;
+        width:200px;
+    }
+</style>
+ 
+    @using (Ajax.BeginForm("Showproductslist_cust", "Home",
+    new AjaxOptions { UpdateTargetId = "result", HttpMethod = "Post" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <table align="center" style="font-size:30px;font-weight:800;align-content:center;">
+            <tr>
+                        <td width="200px;">
+                            @Html.TextBox("search_name", "", new { size = "30" })
+                        </td>
+
+
+                        <td>
+                            <input type="submit" value="Search" style="background-color:yellow; " />
+                        </td>
+            </tr>
+
+        </table>
+
+    }
+
+
+
+
+
+    <table style="font-size:30px;font-weight:800;color:blue" align="center">
+        <tr>
+            
+
+
+            <td class="ABC">
+                @Ajax.ActionLink("Mobiles", "Showbycategory", new { catname = "Mobiles" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+            </td>
+            
+            <td class="ABC">
+                @Ajax.ActionLink("Camera", "Showbycategory", new { catname = "Camera" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+            </td>
+          
+            <td width="250px">
+                @Ajax.ActionLink("Televisons", "Showbycategory", new { catname = "Televisons" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+            </td>
+
+            <td class="ABC">
+                @Ajax.ActionLink("Laptops", "Showbycategory", new { catname = "Laptops" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+
+
+            </td>
+        </tr>
+
+
+
+    </table>
+<br />
+<br />
+<br />
+
+    <div id="result" style="font-size: 20px; width: auto; height: auto; align-content: center">
+    </div>
+
+

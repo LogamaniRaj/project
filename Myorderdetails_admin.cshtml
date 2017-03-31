@@ -1,0 +1,164 @@
+﻿@model mvc_shopping_mainproject.Models.orderModel
+
+@{
+    ViewBag.Title = "Myorderdetails_admin";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<h2>Myorderdetails_admin</h2>
+
+<table align="center" style="border:solid;background-color:lemonchiffon;color:darkblue;height:auto;font-size:28px;font-family:Garamond">
+    <tr style="background-color:darkblue;color:yellow">
+        <td>
+            <table style="font-size:20px;font-weight:700;text-align:center">
+                <tr>
+                    <td style="color:green;font-size:25px;text-wrap: avoid; width:900px;">
+                        @ViewBag.addtocart_status
+                    </td>
+                </tr>
+            </table>
+            <table style="font-size:20px;font-weight:700;text-align:justify;width:100%;">
+                <tr>
+                    <td>
+                        OrderID:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.OrderID)
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Customer EmailId:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.CustomerEmailId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ProductId:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ProductId)
+
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Product Name:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ProductName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ProductPrice:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ProductPrice)
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ProductQuantity:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.ProductQuantity)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        OrderPrice:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.OrderPrice)
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        OrderDate:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.OrderDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Customer Name:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.CustomerName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        DeliveryAddress:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.DeliveryAddress)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        DeliveryCity:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.DeliveryCity)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        State:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.State)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PinCode:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.PinCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td>MobileNo</td>
+                    <td>
+                        @Html.DisplayFor(model => model.MobileNo)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        PaymentOption:
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.PaymentOption)
+                    </td>
+                </tr>
+
+
+
+            </table>
+        </td>
+
+
+
+    </tr>
+    <tr>
+        <td>
+
+
+            @Html.ActionLink("Back to Myorders", "Adminorderslist")
+
+        </td>
+
+    </tr>
+
+</table>
+

@@ -1,0 +1,102 @@
+﻿@model mvc_shopping_mainproject.Models.productModel
+
+@{
+    ViewBag.Title = "Addproducts";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<script type="text/javascript">
+    function clearcontrols() {
+        document.getElementById("CategoryName").value = "";
+        document.getElementById("ProductId").value = "";
+        document.getElementById("ProductName").value = "";
+        document.getElementById("ProductPrice").value = "";
+        document.getElementById("ProductDescription").value = "";
+        document.getElementById("AvailableQty").value = "";
+        
+        document.getElementById("btn_add").disabled = true;
+
+    }
+    function orderbtnclear() {
+        document.getElementById("btn_add").disabled = false;
+
+    }
+
+</script>
+
+<h2>Add Products</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Addproducts","Home",FormMethod.Post,new { enctype="multipart/form-data"})) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+  <fieldset style="align-content:center; text-align:justify;font-size:22px;color:darkblue">
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryName)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.CategoryName, ViewBag.catlist as IEnumerable<SelectListItem>, "select category")
+            @Html.ValidationMessageFor(model => model.CategoryName)
+        </div>
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductName)
+            @Html.ValidationMessageFor(model => model.ProductName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductPrice)
+            @Html.ValidationMessageFor(model => model.ProductPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductDescription)
+            @Html.ValidationMessageFor(model => model.ProductDescription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductImageAddr)
+        </div>
+        <div class="editor-field">
+            <input type="file" id="prodimage" name="prod_images" />
+            @*<input type="submit" value="Upload" class="submit" />*@
+
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AvailableQty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AvailableQty)
+            @Html.ValidationMessageFor(model => model.AvailableQty)
+        </div>
+
+        <p>
+            <input type="submit" value="Add Products" id="btn_add"  />
+            <br />
+            <br />
+            @ViewBag.msg_addprod_status
+        </p>
+    </fieldset>
+}
+
+<div  style="font-size:30px;color:red;align-content:center;text-align:center;">
+    @Html.ActionLink("Back to home", "Adminindex")
+</div>
+
+

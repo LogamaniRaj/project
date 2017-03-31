@@ -1,0 +1,106 @@
+﻿@model mvc_shopping_mainproject.Models.administratorModel
+
+@{
+    ViewBag.Title = "Addadmin";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<!DOCTYPE html>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<html>
+
+<body>
+    
+    <script type="text/javascript">
+        function clearcontrols() {
+            document.getElementById("AdminName").value = "";
+            document.getElementById("AdminEmailId").value = "";
+            document.getElementById("AdminMobile").value = "";
+            document.getElementById("AdminPassword").value = "";
+
+            document.getElementById("SecurityQuestion").value = "";
+            document.getElementById("SecurityAnswer").value = "";
+            document.getElementById("btn_addadmin").disabled = true;
+
+        }
+        function orderbtnclear() {
+            document.getElementById("btn_addadmin").disabled = false;
+
+        }
+
+    </script>
+    
+     @using (Ajax.BeginForm("Addadmin", "Home", new AjaxOptions { HttpMethod = "post", UpdateTargetId = "result", OnBegin = "orderbtnclear", OnComplete = "clearcontrols" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+    <fieldset style="align-content:center; text-align:justify;font-size:22px;color:darkblue">
+
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdminName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdminName)
+            @Html.ValidationMessageFor(model => model.AdminName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdminMobile)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdminMobile)
+            @Html.ValidationMessageFor(model => model.AdminMobile)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdminEmailId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdminEmailId)
+            @Html.ValidationMessageFor(model => model.AdminEmailId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdminPassword)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.AdminPassword)
+            @Html.ValidationMessageFor(model => model.AdminPassword)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SecurityQuestion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityQuestion)
+            @Html.ValidationMessageFor(model => model.SecurityQuestion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SecurityAnswer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityAnswer)
+            @Html.ValidationMessageFor(model => model.SecurityAnswer)
+        </div>
+
+        <p>
+            <input type="submit" value="Add Admin " id="btn_addadmin" style="width: 100px;background-color:darkblue;width:250px;height:50px;color:white;font-size:xx-large;font-weight:800;font-family:Georgia" />
+        </p>
+    </fieldset>
+    }
+    <div id="result">
+
+    </div>
+    <div style="font-size:30px;color:red;align-content:center;text-align:center;">
+        @Html.ActionLink("Back to home", "Adminindex")
+    </div>
+
+
+    
+</body>
+</html>

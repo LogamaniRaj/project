@@ -1,0 +1,70 @@
+﻿@model IEnumerable<mvc_shopping_mainproject.Models.productModel>
+      <link href="~/Content/Site.css" rel="stylesheet" />     
+<div align="center">
+    <table style="border-color:brown;border-style:double;border-width:3px;text-align:center;color:darkblue;width:1300px;">
+        <tr style="font-weight:600;background-color:yellow;">
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                Product Image
+            </th>
+            <th>
+                Available Qty
+            </th>
+            <th>
+                Update
+            </th>
+
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="font-weight:600;background-color:lightsalmon;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+
+                    <img src=@Html.ValueFor(modelItem => item.ProductImageAddr) height="70" width="70" />
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailableQty)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Update", "Modifyproducts", new { pid = @item.ProductId })
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+</div>

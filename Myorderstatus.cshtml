@@ -1,0 +1,36 @@
+﻿@model mvc_shopping_mainproject.Models.statusModel
+
+@{
+    ViewBag.Title = "Myorderstatus";
+    Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+<h2>Order Status</h2>
+
+
+    
+
+    
+<table align="center" style="font-size:50px;color:green;font-family:'Microsoft Himalaya';align-content:center">
+ 
+    <tr>
+        <td style="font-size:50px;color:green">
+            @Html.DisplayFor(model => model.orderstatus)
+        </td>
+        </tr>
+<tr>
+    
+
+
+        <td>
+            
+
+                @Html.ActionLink("Back to Myorders", "Myorders")
+            
+        </td>
+    </tr>
+</table>
+  
+   
+
+

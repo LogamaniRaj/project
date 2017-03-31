@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Showproductslist_admin";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+<style>
+    .ABC {
+        align-content: center;
+        width: 200px;
+    }
+</style>
+
+<h2>Showproductslist</h2>
+
+<div>
+
+    <table style="font-size:30px;font-weight:800;color:blue" align="center">
+        <tr>
+            <td class="ABC">
+                @Ajax.ActionLink("Mobiles", "Showbycategoryadmin", new { catname = "Mobiles" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+            </td>
+            <td class="ABC">
+                @Ajax.ActionLink("Camera", "Showbycategoryadmin", new { catname = "Camera" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+            </td>
+            <td class="ABC">
+                @Ajax.ActionLink("Televisions", "Showbycategoryadmin", new { catname = "Televisons" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+            </td>
+            <td class="ABC">
+                @Ajax.ActionLink("Laptops", "Showbycategoryadmin", new { catname = "Laptops" }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+
+
+            </td>
+        </tr>
+
+
+
+    </table>
+    </div>
+<div id="result" style="width:700px;font-size:20px">
+</div>
+
+

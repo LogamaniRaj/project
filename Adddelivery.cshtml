@@ -1,0 +1,104 @@
+﻿@model mvc_shopping_mainproject.Models.deliveryModel
+
+@{
+    ViewBag.Title = "Adddelivery";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2>Adddelivery</h2>
+
+<body>
+    
+    <script type="text/javascript">
+        function clearcontrols() {
+            document.getElementById("DeliveryName").value = "";
+            document.getElementById("DeliveryEmailId").value = "";
+            document.getElementById("DeliveryMobile").value = "";
+            document.getElementById("DeliveryPassword").value = "";
+
+            document.getElementById("SecurityQuestion").value = "";
+            document.getElementById("SecurityAnswer").value = "";
+            document.getElementById("btn_adddelivery").disabled = true;
+
+        }
+        function orderbtnclear() {
+            document.getElementById("btn_adddelivery").disabled = false;
+
+        }
+
+    </script>
+    
+     @using (Ajax.BeginForm("Adddelivery", "Home", new AjaxOptions { HttpMethod = "post", UpdateTargetId = "result",
+         OnBegin = "orderbtnclear", OnComplete = "clearcontrols" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+   <fieldset style="align-content:center; text-align:justify;font-size:22px;color:darkblue">
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeliveryName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DeliveryName)
+            @Html.ValidationMessageFor(model => model.DeliveryName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeliveryMobile)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DeliveryMobile)
+            @Html.ValidationMessageFor(model => model.DeliveryMobile)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeliveryEmailId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DeliveryEmailId)
+            @Html.ValidationMessageFor(model => model.DeliveryEmailId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeliveryPassword)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.DeliveryPassword)
+            @Html.ValidationMessageFor(model => model.DeliveryPassword)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SecurityQuestion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityQuestion)
+            @Html.ValidationMessageFor(model => model.SecurityQuestion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SecurityAnswer)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityAnswer)
+            @Html.ValidationMessageFor(model => model.SecurityAnswer)
+        </div>
+
+        <p>
+            <input type="submit" value="Add Delivery " id="btn_adddelivery" style="width: 100px;background-color:darkblue;width:250px;height:50px;color:white;font-size:xx-large;font-weight:800;font-family:Georgia" />
+        </p>
+    </fieldset>
+    }
+<div id="result">
+   
+
+</div>
+    <div style="font-size:30px;color:red;align-content:center;text-align:center;">
+        @Html.ActionLink("Back to home", "Adminindex")
+    </div>
+    </body>
+
+
+

@@ -1,0 +1,87 @@
+﻿@model mvc_shopping_mainproject.Models.productModel
+
+@{
+    ViewBag.Title = "Modifyproducts";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<h2>Modifyproducts</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>productModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryName)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.CategoryName, ViewBag.catlist as IEnumerable<SelectListItem>, "select category")
+            @Html.ValidationMessageFor(model => model.CategoryName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductId)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ProductId, new { @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.ProductId)
+            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductName)
+            @Html.ValidationMessageFor(model => model.ProductName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductPrice)
+            @Html.ValidationMessageFor(model => model.ProductPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProductDescription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProductDescription)
+            @Html.ValidationMessageFor(model => model.ProductDescription)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.ProductImageAddr)
+        </div>
+        <div class="editor-field">
+           <input type="file" id="prodimage" name="prod_images"/>
+            @Html.ValidationMessageFor(model => model.ProductImageAddr)
+        </div>*@
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AvailableQty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AvailableQty)
+            @Html.ValidationMessageFor(model => model.AvailableQty)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+    <div>
+        @ViewBag.msg_modify_status
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

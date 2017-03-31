@@ -1,0 +1,110 @@
+﻿@model mvc_shopping_mainproject.Models.customerModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+<html>
+
+<body>
+    
+    <script type="text/javascript">
+        function clearcontrols() {
+            document.getElementById("CustomerName").value = "";           
+            document.getElementById("CustomerEmailId").value = "";
+            document.getElementById("CustomerMobile").value = "";
+            document.getElementById("CustomerPassword").value = "";
+            document.getElementById("CustomerAddress").value = "";
+            document.getElementById("SecurityQuestion").value = "";
+            document.getElementById("SecurityAnswer").value = "";
+            document.getElementById("btn_add").disabled = true;
+
+        }
+        function orderbtnclear() {
+            document.getElementById("btn_add").disabled = false;
+
+        }
+
+    </script>
+
+    
+    @using (Ajax.BeginForm("NewCustomer", "Home", new AjaxOptions { HttpMethod = "post", UpdateTargetId = "result", OnBegin = "orderbtnclear", OnComplete = "clearcontrols" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div style="width:1500px;">
+            <img src="~/Product_images/banner-shop.jpg" style="width:1500px; height:300px;"/>
+
+        </div>
+
+        <fieldset style="background-color: lightyellow;align-content:center; text-align:justify;font-size:22px;color:darkblue;">
+           
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CustomerName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CustomerName)
+                @Html.ValidationMessageFor(model => model.CustomerName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CustomerMobile)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CustomerMobile)
+                @Html.ValidationMessageFor(model => model.CustomerMobile)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CustomerEmailId)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CustomerEmailId)
+                @Html.ValidationMessageFor(model => model.CustomerEmailId)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CustomerPassword)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(model => model.CustomerPassword)
+                @Html.ValidationMessageFor(model => model.CustomerPassword)
+            </div>
+
+           
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SecurityQuestion)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SecurityQuestion)
+                @Html.ValidationMessageFor(model => model.SecurityQuestion)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SecurityAnswer)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SecurityAnswer)
+                @Html.ValidationMessageFor(model => model.SecurityAnswer)
+            </div>
+
+            <p>
+                <input type="submit" value="Signup" id="btn_add" style="width: 100px;background-color:darkblue;width:250px;height:50px;color:white;font-size:xx-large;font-weight:800;font-family:Georgia" />
+            </p>
+        </fieldset>
+    }
+    <div id="result">
+        
+    </div>
+    <div>
+        @Html.ActionLink("Back to Login", "Login")
+    </div>
+</body>
+</html>

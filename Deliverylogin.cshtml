@@ -1,0 +1,102 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<style>
+    .abc {
+        font-size: x-large;
+        width: 400px;
+        height: 400px;
+        color: red;
+        font-weight: 700;
+        font-family: Georgia;
+    }
+</style>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login Page</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+
+<body style="background-image: url('/Product_images/77.jpg'); background-size: cover; ">
+    @using (Html.BeginForm("Deliverylogin", "Home"))
+    {
+        <div align="center">
+
+
+            <table style="background-color:transparent; align-content: center; vertical-align: middle; width: auto; border: none;">
+
+                <tr>
+                    <td colspan="4" style="font-size: 40px;width:auto;align-content:center; font-weight:900;color:darkblue">
+                        Welcome To E-Shopping Delivery Portal
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+
+            <table class="abc" align="right" style="background-color: transparent; align-content: center; vertical-align: middle; width: auto; border: none;">
+
+                <tr>
+                    <td style="align-content:center;font-size:30px;font-weight:900">
+                        Login
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email Id:
+                    </td>
+                    <td style="font-size:x-large">
+                        @Html.TextBox("DeliveryEmailId", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+                    </td>
+                    <td style="font-size:x-large">
+                        @Html.Password("DeliveryPassword", "")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Rememberme
+                    </td>
+                    <td>
+                        @Html.CheckBox("rememberme", "false")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" value="Login" style="background-color:blue ; color: white; font-size: xx-large; font-weight: 800; font-family: Georgia; width: 120px; height: 50px" />
+                    </td>
+                    <td>
+                        @ViewBag.msg1
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+
+
+        </div>
+    }
+</body>
+
+</html>
+

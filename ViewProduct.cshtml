@@ -1,0 +1,94 @@
+﻿@model mvc_shopping_mainproject.Models.productModel
+
+@{
+    //ViewBag.Title = "ViewProduct";
+    //Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+
+<table align="center" style="background-origin:content-box;background-color:lightyellow;text-align:center;font-size:25px;color:darkblue;width:1000px;">
+  
+        <tr>
+            <td>
+                <table style="font-size:20px;font-weight:700;text-align:center">
+                    <tr>
+                        <td style="color:green;font-size:25px;text-wrap: avoid; width:900px;">
+                              @ViewBag.addtocart_status
+                        </td>
+                    </tr>
+                    </table>
+                <table style ="font-size:20px;font-weight:700;text-align:justify;width:100%;">
+                    <tr >
+                        <td>
+                            CategoryName:
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.CategoryName)
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ProductID:
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.ProductId)
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           ProductName
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.ProductName)
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ProductPrice:
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.ProductPrice)
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ProductDescription:
+                        </td>
+                        <td width="800px" style="text-wrap:normal">
+                            @Html.DisplayFor(model => model.ProductDescription)
+                            <br />
+                        </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+    </td>
+    <td rowspan="13">
+        <img src=@Html.ValueFor(model => model.ProductImageAddr) height="350" width="300" />
+    </td>
+
+    </tr>
+    <tr>
+        <td colspan="2" style="font-size:larger;color:red">
+            @Html.ActionLink("Add To Cart", "Addtocart", new { pid = Model.ProductId } )
+            
+            <br />
+           
+            
+         
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="font-size:larger;color:blue">
+            @Html.ActionLink("Buy Now", "Placeorder", new { pid = Model.ProductId })
+            <br />
+            <br />
+
+
+        </td>
+
+    </tr>
+</table>

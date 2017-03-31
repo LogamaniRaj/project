@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+
+<html>
+<head>
+    Welcome,@User.Identity.Name
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .body {
+        }
+    </style>
+
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+
+        <div align="center">
+
+
+            <table style="background-color: lightyellow; width: 100%; border-width: 3px; font-size: x-large">
+                <tr>
+                    <td>
+                        <nav class="navbar navbar-inverse">
+                            <div class="container-fluid">
+
+                                <ul class="nav navbar-nav">
+                                    <li class="active">  <a class="navbar-brand" href="@Url.Action("Adminindex", "Home")">Nish-Admin</a></li>
+                                    <li> <a href="@Url.Action("Addadmin", "Home")">Add Administrator</a></li>
+                                    <li> <a href="@Url.Action("Adddelivery", "Home")">Add Delivery Agency </a></li>
+                                    <li> <a href="@Url.Action("Addproducts", "Home")">Add Products</a></li>
+                                    <li> <a href="@Url.Action("Showproductslist_admin", "Home")">Show Products </a></li>
+                                    <li> <a href="@Url.Action("Adminorderslist", "Home")">Orders </a></li>
+                                    <li> <a href="@Url.Action("Completedorders_admin", "Home")">Delivered Orders </a></li>
+                                </ul>
+                                <ul class="nav navbar-right" >
+                                    <li><a href="@Url.Action("Login", "Home")">  Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </td>
+
+
+
+
+                </tr>
+            </table>
+
+        </div>
+        <div style="height:1500px;">
+            @RenderBody()
+
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        
+        <div style="font-size:x-large;align-content:center;text-align:center;color:darkmagenta;vertical-align:baseline">
+            Copyright © 2017 by J.Nishanth<br />
+            All Rights Reserved.
+        </div>
+    }
+</body>
+
+</html>
+
+

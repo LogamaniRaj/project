@@ -1,0 +1,104 @@
+﻿@model mvc_shopping_mainproject.Models.orderModel
+
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+<h2>Payment</h2>
+
+<fieldset>
+    <legend>orderModel</legend>
+
+   
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerEmailId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerEmailId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductPrice)
+    </div>
+
+    
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductQuantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductQuantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DeliveryAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeliveryAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DeliveryCity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeliveryCity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PinCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PinCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MobileNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MobileNo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

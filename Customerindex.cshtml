@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Customerindex";
+    Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+
+
+
+    <div  style="width: 80%; height: auto; align-content: center; min-width: 600px; max-width: 2000px;">
+        <img src="/Product_images/banner-shop.jpg" style="width:120%; height:350px; align-content: center;" />
+
+
+        
+        <div  >
+            <marquee direction="right" scrollamount="7" behavior="alternate">
+
+
+                <a href="@Url.Action("Showbycategory", "Home",  new { catname = "Camera" })" target="_parent">
+                    <img src="~/Product_images/manycamerasslr8-w960h330.jpg" alt="Camera" border="0" />
+                </a>
+                <a href="@Url.Action("Showbycategory", "Home",  new { catname = "Laptops" })" target="_parent">
+                    <img src="~/Product_images/556.png" alt="Laptops" border="0" />
+                </a>
+                <a href="@Url.Action("Showbycategory", "Home",  new { catname = "Mobiles" })" target="_self">
+                    <img src="~/Product_images/01.jpg" alt="Mobiles" border="0" />
+                </a>
+                <a href="@Url.Action("Showbycategory", "Home",  new { catname = "Televisons" })" target="_self">
+                    <img src="~/Product_images/teler.jpg" alt="Laptops" border="0" />
+                </a>
+
+                
+            </marquee>
+        </div>
+        </div>
+        
+                
+
+
+        
+
+
+
+     

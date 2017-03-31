@@ -1,0 +1,55 @@
+﻿@model IEnumerable<mvc_shopping_mainproject.Models.productModel>
+
+@{
+    ViewBag.Title = "Mycart";
+    Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+
+<table align="center" style="border:solid;background-color:lemonchiffon;color:darkblue;height:auto;font-size:28px;font-family:Garamond">
+
+    @foreach (var item in Model)
+    {
+        <tr style="width:600px;height:100px;">
+            <td>
+                <a href="@Url.Action("ViewProduct", "Home", new { pid = item.ProductId })" target="_self">
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </a>
+</td>
+            <td width="50px;">
+
+            </td>
+            <td style="width:200px">
+
+              Price:  @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td></td>
+
+
+            <td>
+                <table>
+                    <tr >
+                        <td></td>
+                        <td rowspan="5" >
+                            <a href="@Url.Action("ViewProduct", "Home", new { pid = item.ProductId })" target="_self">
+                                <img src=@Html.ValueFor(modelItem => item.ProductImageAddr) height="100" width="100" />
+                            </a>
+                            
+                        </td>
+                        <td width="50px;"></td>
+                    </tr>
+                </table>
+            </td>
+
+            <td style="width:200px">
+                @Html.ActionLink("Place Order", "Placeorder", new { pid = item.ProductId })
+            </td>
+            <td width="10px;"></td>
+            <td style="width:200px">
+                @Html.ActionLink("Delete from Cart", "deletefromcart", new { pid = item.ProductId })
+            </td>
+
+        </tr>
+    }
+
+</table>

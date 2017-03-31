@@ -1,0 +1,132 @@
+﻿@model IEnumerable<mvc_shopping_mainproject.Models.orderModel>
+
+@{
+    ViewBag.Title = "Myorders";
+    Layout = "~/Views/Shared/customer_layout.cshtml";
+}
+
+<h2>My Orders</h2>
+
+@using (Ajax.BeginForm("Myorders", "Home", new AjaxOptions { HttpMethod = "post", UpdateTargetId = "result"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<table align="center" style="border:none;background-color:lemonchiffon;color:darkblue;font-size:28px;font-family:Garamond">
+    <tr style="background-color:darkblue;color:yellow">
+        <th hidden>
+        @Html.DisplayNameFor(model => model.OrderID)
+    </th>
+    <th hidden>
+        @Html.DisplayNameFor(model => model.CustomerEmailId)
+    </th>
+        <th hidden>
+        @Html.DisplayNameFor(model => model.ProductId)
+    </th>
+        <th width="400px;">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th width="400px;">
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th width="410px;">
+            @Html.DisplayNameFor(model => model.ProductQuantity)
+        </th>
+        <th width="400px;">
+            @Html.DisplayNameFor(model => model.OrderPrice)
+        </th>
+        <th width="400px;">
+            @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.DeliveryAddress)
+        </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.DeliveryCity)
+        </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.PinCode)
+        </th>
+        <th hidden>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+            <th width="400px;">
+                        @Html.DisplayNameFor(model => model.PaymentOption)
+                        </th>
+            <th></th>
+        <th>
+            
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           <td hidden>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.CustomerEmailId)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td width="400px;">
+                <a href="@Url.Action("ViewProduct", "Home", new { pid = item.ProductId })" target="_self">
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                    </a>
+</td>
+            <td width="400px;">
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+            <td width="410px;">
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td width="400px;">
+                @Html.DisplayFor(modelItem => item.OrderPrice)
+            </td>
+            <td width="400px;">
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.DeliveryAddress)
+                </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.DeliveryCity)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.PinCode)
+            </td>
+            <td hidden>
+                @Html.DisplayFor(modelItem => item.MobileNo)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentOption)
+                </td>
+       
+            <td width="400px;">
+                @Html.ActionLink("Track Package", "Myorderstatus", new { orderid = item.OrderID }, new AjaxOptions { HttpMethod = "get", UpdateTargetId = "result" })
+
+            </td>
+            <td width="400px;">
+                @Html.ActionLink("Order Details ", "Myorderdetails", new { orderid = item.OrderID }, new AjaxOptions { HttpMethod = "get", UpdateTargetId = "result" })
+
+            </td>
+        
+    </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+        </tr>
+}
+
+</table>
+}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<mvc_shopping_mainproject.Models.productModel>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<div style="width:auto; height:auto;align-content:center">
+        
+        <table style="border-color:brown;border-style:double;border-width:3px;text-align:justify;color:darkblue;width:1300px;align-content:center">
+            <tr style="font-weight:600;align-content:center;background-color:skyblue">
+                <th hidden style="width:60px">
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th hidden style="width:60px">
+                    @Html.DisplayNameFor(model => model.ProductId)
+                </th>
+                <th style="width:400px" align="justify">
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th style="width:150px">
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+                <th hidden style="width: 800px; align-content: center;">
+                    @Html.DisplayNameFor(model => model.ProductDescription)
+                </th>
+                <th style="width:150px">
+                    Product Image
+                </th>
+                <th></th>
+
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr style="font-weight:600;">
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td hidden>
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>
+                    <td style="width:400px; height:300px" align="justify">
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td style="width: 150px; height:300px">
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+                    <td hidden style="text-wrap: normal; width: 800px; align-content: center; height: 300px">
+                        @Html.DisplayFor(modelItem => item.ProductDescription)
+                    </td>
+                    <td style="width:150px">
+
+                        <img src=@Html.ValueFor(modelItem => item.ProductImageAddr) height="150" width="150" />
+
+                    </td>
+
+                    <td width="200px;">
+
+
+
+                        @Ajax.ActionLink("Click To View", "ViewProduct", new { pid = @item.ProductId }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "result" })
+                        @*<input type="submit" value="click" formaction='ViewProduct?pid=@item.ProductId' />*@
+
+                    </td>
+
+
+
+
+
+                </tr>
+            }
+
+        </table>
+        <p>
+
+            @Html.ActionLink("Back to Home", "Customerindex")
+        </p>
+    </div>
+
